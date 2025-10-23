@@ -3,13 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Speaking Help</title>
+    <title>Croissant - Public Speaking Coach</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="recording">Start Recording</button>
-    <audio id="audioPlayback" controls style="display: none;"></audio>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="croissant">🥐</span>
+            <span class="brand-name">Croissant</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link" data-section="library">Library</a>
+            <a href="#" class="nav-link" data-section="lessons">Lessons</a>
+            <a href="#" class="nav-link" data-section="practice">Practice</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="library-section" class="section hidden">
+            <h1>Video Library</h1>
+            <p>Coming soon: Watch curated public speaking examples and TED talks</p>
+        </div>
+        <div id="lessons-section" class="section hidden">
+            <h1>Your Lesson Plan</h1>
+            <p>Coming soon: Personalized learning path based on your progress</p>
+        </div>
 
-    
+        <div id="Practice-section" class="section">
+            <h1>Practice Your Speech</h1>
+            <p>Record your speech and get instant feedback on your delivery.</p>
+            <div class="recording-area">
+                <button id="recording" class="record-button">
+                    <span class="record-icon">🎤</span>
+                    <span class="record-text">Start Recording</span>
+                </button>
+                
+                <div id="recording-status" class="recording-status hidden">
+                    <span class="pulse-dot"></span>
+                    <span class="status-text">Recording...</span>
+                    <span id="timer" class="timer">0:00</span>
+                </div>
+            </div>
+
+            <div id="playback-area" class="playback-area hidden">
+                <h3>Your Recording</h3>
+                <audio id="audioPlayback" controls></audio>
+            </div>
+        </div>
+            
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
