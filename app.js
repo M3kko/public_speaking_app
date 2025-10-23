@@ -16,6 +16,20 @@ recordButton.addEventListener('click', async () => {
 
             mediaRecorder.onstop = async () => {
                  const audioBlob = new Blob(audioChunks, { type: 'audio/webm'});
+
+                 try {
+                    const response = await fetch('/api/upload', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'audio/webm'
+                        },
+                        body: audioBlob
+                 });
+                 const result = await response.json();
+                 } catch (error) {
+                        console.error('Error uploading audio:', error);
+                }
+
                  const audioUrl = URL.createObjectURL(audioBlob);
 
                  const audioPlayback = document.getElementById('audioPlayback');
