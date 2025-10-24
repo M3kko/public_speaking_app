@@ -18,7 +18,12 @@
             <a href="#" class="nav-link" data-section="practice">Practice</a>
         </div>
     </nav>
-    <div class="container">
+    <main class="main-content">
+        <div class="top-bar">
+            <img src="assets/svg/flame.svg" alt="Streak" class="flame-icon">
+            <img src="assets/svg/user-circle.svg" alt="Profile" class="profile-icon">
+        </div>
+        <div class="container">
         <div id="library-section" class="section hidden">
             <h1>Video Library</h1>
             <p>Coming soon: Watch curated public speaking examples and TED talks</p>
@@ -28,29 +33,111 @@
             <p>Coming soon: Personalized learning path based on your progress</p>
         </div>
 
-        <div id="Practice-section" class="section">
-            <h1>Practice Your Speech</h1>
-            <p>Record your speech and get instant feedback on your delivery.</p>
-            <div class="recording-area">
-                <button id="recording" class="record-button">
-                    <span class="record-icon">🎤</span>
-                    <span class="record-text">Start Recording</span>
-                </button>
-                
-                <div id="recording-status" class="recording-status hidden">
-                    <span class="pulse-dot"></span>
-                    <span class="status-text">Recording...</span>
-                    <span id="timer" class="timer">0:00</span>
+        <div id="practice-section" class="section">
+            <div class="practice-greeting">
+                <h1 id="greeting-text">Good morning, User</h1>
+                <p class="greeting-subtitle">What would you like to practice today?</p>
+            </div>
+
+            <div class="practice-grid">
+                <div class="practice-item" data-practice="elevator-pitch">
+                    <div class="practice-icon-circle" style="background: #80C6E6;">
+                        <img src="assets/svg/elevator.svg" alt="Elevator" class="practice-svg-icon">
+                    </div>
+                    <h3>Elevator Pitch</h3>
+                    <p>Deliver a compelling 60-second pitch</p>
+                </div>
+
+                <div class="practice-item" data-practice="explain-topic">
+                    <div class="practice-icon-circle" style="background: #6BB5D6;">
+                        <img src="assets/svg/microphone-2.svg" alt="Microphone" class="practice-svg-icon">
+                    </div>
+                    <h3>Explain a Topic</h3>
+                    <p>Break down complex ideas simply</p>
+                </div>
+
+                <div class="practice-item" data-practice="being-concise">
+                    <div class="practice-icon-circle" style="background: #5AA4C6;"></div>
+                    <h3>Being Concise</h3>
+                    <p>Get your point across in under 2 minutes</p>
+                </div>
+
+                <div class="practice-item" data-practice="presentation" data-locked="true">
+                    <img src="assets/svg/lock.svg" class="lock-icon" alt="Locked">
+                    <div class="practice-icon-circle" style="background: #AAD9E6;">
+                        <img src="assets/svg/chalkboard.svg" alt="Chalkboard" class="practice-svg-icon">
+                    </div>
+                    <h3>Presentation Skills</h3>
+                    <p>Master formal presentations</p>
+                </div>
+
+                <div class="practice-item" data-practice="storytelling" data-locked="true">
+                    <img src="assets/svg/lock.svg" class="lock-icon" alt="Locked">
+                    <div class="practice-icon-circle" style="background: #9AD0E0;">
+                        <img src="assets/svg/book.svg" alt="Book" class="practice-svg-icon">
+                    </div>
+                    <h3>Storytelling</h3>
+                    <p>Craft and deliver engaging stories</p>
+                </div>
+
+                <div class="practice-item" data-practice="spontaneous">
+                    <div class="practice-icon-circle" style="background: #4A93B6;"></div>
+                    <h3>Spontaneous Speaking</h3>
+                    <p>Think on your feet with random prompts</p>
+                </div>
+
+                <div class="practice-item" data-practice="persuasion" data-locked="true">
+                    <img src="assets/svg/lock.svg" class="lock-icon" alt="Locked">
+                    <div class="practice-icon-circle" style="background: #8AC7DB;"></div>
+                    <h3>Persuasive Speaking</h3>
+                    <p>Convince and influence your audience</p>
+                </div>
+
+                <div class="practice-item" data-practice="debate" data-locked="true">
+                    <img src="assets/svg/lock.svg" class="lock-icon" alt="Locked">
+                    <div class="practice-icon-circle" style="background: #7ABECF;">
+                        <img src="assets/svg/microphone-2.svg" alt="Microphone" class="practice-svg-icon">
+                    </div>
+                    <h3>Debate & Argument</h3>
+                    <p>Construct and defend your position</p>
                 </div>
             </div>
 
-            <div id="playback-area" class="playback-area hidden">
-                <h3>Your Recording</h3>
-                <audio id="audioPlayback" controls></audio>
+            <div id="recording-modal" class="recording-modal hidden">
+                <div class="modal-content">
+                    <button class="close-modal">×</button>
+                    <h2 id="modal-title">Elevator Pitch</h2>
+                    <p id="modal-instructions">You have 60 seconds to deliver your pitch. Click record when ready.</p>
+
+                    <div class="recording-area">
+                        <button id="recording" class="record-button">
+                            <img src="assets/svg/microphone.svg" alt="Microphone" class="record-icon">
+                        </button>
+
+                        <div id="recording-status" class="recording-status hidden">
+                            <span class="pulse-dot"></span>
+                            <span class="status-text">Recording...</span>
+                            <span id="timer" class="timer">0:00</span>
+                        </div>
+                    </div>
+
+                    <div id="playback-area" class="playback-card hidden">
+                        <div class="playback-header">
+                            <h3>Your Recording</h3>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                        <audio id="audioPlayback" controls></audio>
+                        <div class="recording-actions">
+                            <button class="action-btn primary">Get Feedback</button>
+                            <button class="action-btn secondary">Save Recording</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-            
-    </div>
+
+        </div>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>
